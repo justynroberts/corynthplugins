@@ -30,9 +30,14 @@ workflow "example" {
 | **docker** | 1.0.0 | 3.7M | Docker container operations and image management | `build`, `run`, `ps`, `stop` |
 | **image-processor** | 1.0.0 | 4.4M | Image processing and format conversion | `info`, `convert`, `validate` |
 | **hello-world** | 1.0.0 | 3.8M | Multi-language greetings and learning examples | `greet`, `echo` |
+| **jenkins** | 1.0.0 | 3.7M | Jenkins CI/CD pipeline automation and build management | `trigger_build`, `get_build_status`, `list_jobs`, `get_console_output` |
+| **mysql** | 1.0.0 | 3.7M | MySQL database operations and management | `query`, `ping`, `backup`, `restore` |
 | **pagerduty** | 1.0.0 | 3.7M | PagerDuty incident management and alerting | `create_incident`, `resolve_incident`, `list_incidents`, `get_oncall` |
 | **postgresql** | 1.0.0 | 3.7M | PostgreSQL database operations | `query`, `ping` |
+| **prometheus** | 1.0.0 | 3.7M | Prometheus monitoring and metrics collection | `query`, `query_range`, `get_targets`, `get_alerts`, `get_series` |
 | **redis** | 1.0.0 | 3.7M | Redis cache operations and key-value storage | `set`, `get` |
+| **terraform** | 1.0.0 | 3.7M | Terraform Infrastructure as Code operations | `plan`, `apply`, `destroy`, `init` |
+| **vault** | 1.0.0 | 3.7M | HashiCorp Vault secrets management and encryption | `read_secret`, `write_secret`, `delete_secret`, `list_secrets`, `authenticate`, `encrypt`, `decrypt` |
 | **http-client** | 1.0.0 | 12M | HTTP requests with timeout and header support | `get`, `post` |
 | **slack** | 1.0.0 | 12M | Slack workspace messaging and management | `send_message`, `get_channels` |
 | **github** | 1.0.0 | 12M | GitHub repository operations and CI/CD | `create_issue` |
@@ -81,18 +86,29 @@ corynth plugin categories
 ### Database
 - `postgresql` - PostgreSQL operations
 - `redis` - Redis caching
+- `mysql` - MySQL operations
 
 ### Development
 - `github` - GitHub integration
 - `hello-world` - Learning examples
 - `docker` - Container management
+- `jenkins` - CI/CD automation
 
 ### Infrastructure
 - `awscli` - AWS cloud operations
 - `docker` - Containerization
+- `terraform` - Infrastructure as Code
 
 ### Monitoring
 - `pagerduty` - Incident management
+- `prometheus` - Metrics collection
+
+### Security
+- `vault` - Secrets management
+
+### CI/CD
+- `jenkins` - Build automation
+- `terraform` - Infrastructure deployment
 
 ### Media
 - `image-processor` - Image manipulation
@@ -325,6 +341,139 @@ step "check_oncall" {
 }
 ```
 
+### Terraform Plugin
+```hcl
+step "terraform_plan" {
+  plugin = "terraform"
+  action = "plan"
+  params = {
+    working_dir = "./infrastructure"
+    var_file = "production.tfvars"
+  }
+}
+
+step "terraform_apply" {
+  plugin = "terraform"
+  action = "apply"
+  params = {
+    working_dir = "./infrastructure"
+    plan_file = "${step.terraform_plan.outputs.plan_file}"
+    auto_approve = true
+  }
+}
+```
+
+### Jenkins Plugin
+```hcl
+step "trigger_build" {
+  plugin = "jenkins"
+  action = "trigger_build"
+  params = {
+    jenkins_url = "https://jenkins.company.com"
+    username = var.jenkins_user
+    api_token = var.jenkins_token
+    job_name = "deploy-production"
+    parameters = {
+      BRANCH = "main"
+      ENVIRONMENT = "production"
+    }
+    wait_for_completion = true
+  }
+}
+
+step "get_build_logs" {
+  plugin = "jenkins"
+  action = "get_console_output"
+  params = {
+    jenkins_url = "https://jenkins.company.com"
+    username = var.jenkins_user
+    api_token = var.jenkins_token
+    job_name = "deploy-production"
+    build_number = step.trigger_build.outputs.build_number
+  }
+}
+```
+
+### MySQL Plugin
+```hcl
+step "backup_database" {
+  plugin = "mysql"
+  action = "backup"
+  params = {
+    host = "db.company.com"
+    database = "production_db"
+    username = var.db_user
+    password = var.db_password
+    output_file = "/backups/prod_backup_${timestamp()}.sql"
+    compress = true
+  }
+}
+
+step "query_users" {
+  plugin = "mysql"
+  action = "query"
+  params = {
+    host = "db.company.com"
+    database = "production_db"
+    username = var.db_user
+    password = var.db_password
+    sql = "SELECT COUNT(*) as user_count FROM users WHERE created_at >= CURDATE()"
+  }
+}
+```
+
+### Prometheus Plugin
+```hcl
+step "check_service_health" {
+  plugin = "prometheus"
+  action = "query"
+  params = {
+    prometheus_url = "https://prometheus.company.com"
+    query = "up{job=\"api-server\"}"
+  }
+}
+
+step "get_error_rate" {
+  plugin = "prometheus"
+  action = "query_range"
+  params = {
+    prometheus_url = "https://prometheus.company.com"
+    query = "rate(http_requests_total{status=~\"5..\"}[5m])"
+    start = "2024-08-18T10:00:00Z"
+    end = "2024-08-18T11:00:00Z"
+    step = "1m"
+  }
+}
+```
+
+### Vault Plugin
+```hcl
+step "get_db_credentials" {
+  plugin = "vault"
+  action = "read_secret"
+  params = {
+    vault_addr = "https://vault.company.com"
+    vault_token = var.vault_token
+    path = "secret/database/production"
+  }
+}
+
+step "store_api_key" {
+  plugin = "vault"
+  action = "write_secret"
+  params = {
+    vault_addr = "https://vault.company.com"
+    vault_token = var.vault_token
+    path = "secret/api-keys/external-service"
+    data = {
+      api_key = var.external_api_key
+      created_by = "corynth-workflow"
+      expires = "2024-12-31"
+    }
+  }
+}
+```
+
 ## 🔧 Configuration
 
 Add this repository to your `corynth.hcl` configuration (this is the default):
@@ -388,23 +537,26 @@ See the [Plugin Development Guide](https://docs.corynth.io/plugins) for details.
 
 ## 📈 Stats
 
-- **Total Plugins**: 14
+- **Total Plugins**: 19
 - **Total Size**: ~53MB
 - **Downloads**: Auto-tracked by Corynth
 - **Last Updated**: 2024-08-18
 
 ## 🏷️ Featured Plugins
 
-⭐ **docker** - Container management and deployment  
-⭐ **awscli** - Complete AWS cloud operations  
-⭐ **pagerduty** - Incident management and alerting  
-⭐ **slack** - Team notifications and alerts  
+⭐ **terraform** - Infrastructure as Code for any cloud provider  
+⭐ **vault** - Enterprise secrets management and encryption  
+⭐ **jenkins** - Industry-standard CI/CD pipeline automation  
+⭐ **prometheus** - Cloud-native monitoring and alerting  
+⭐ **mysql** - World's most popular open source database  
 
 ## 🆕 New Plugins
 
-🎉 **awscli** - AWS CLI operations for cloud management  
-🎉 **docker** - Container operations and image management  
-🎉 **pagerduty** - Incident response and on-call management  
+🎉 **terraform** - Complete Infrastructure as Code operations  
+🎉 **jenkins** - CI/CD pipeline automation and build management  
+🎉 **mysql** - MySQL database operations and management  
+🎉 **prometheus** - Monitoring, metrics, and alerting  
+🎉 **vault** - HashiCorp Vault secrets management  
 
 ## 📱 Support
 

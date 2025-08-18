@@ -216,6 +216,100 @@
     }
 ,
     {
+      "name": "terraform",
+      "version": "1.0.0",
+      "description": "Terraform Infrastructure as Code operations",
+      "author": "Corynth Team",
+      "size": "3.7M",
+      "format": "compiled",
+      "filename": "corynth-plugin-terraform.so",
+      "tags": ["terraform", "iac", "infrastructure", "cloud", "provisioning"],
+      "actions": [
+        {"name": "plan", "description": "Create Terraform execution plan", "example": "Plan infrastructure changes"},
+        {"name": "apply", "description": "Apply Terraform configuration", "example": "Deploy infrastructure"},
+        {"name": "destroy", "description": "Destroy Terraform-managed infrastructure", "example": "Tear down resources"},
+        {"name": "init", "description": "Initialize Terraform working directory", "example": "Initialize project"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
+      "name": "jenkins",
+      "version": "1.0.0",
+      "description": "Jenkins CI/CD pipeline automation and build management",
+      "author": "Corynth Team",
+      "size": "3.7M",
+      "format": "compiled",
+      "filename": "corynth-plugin-jenkins.so",
+      "tags": ["jenkins", "ci-cd", "build", "automation", "pipeline"],
+      "actions": [
+        {"name": "trigger_build", "description": "Trigger a Jenkins job build", "example": "Start build job"},
+        {"name": "get_build_status", "description": "Get status of a Jenkins build", "example": "Check build result"},
+        {"name": "list_jobs", "description": "List Jenkins jobs", "example": "Get all jobs"},
+        {"name": "get_console_output", "description": "Get console output from a Jenkins build", "example": "View build logs"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
+      "name": "mysql",
+      "version": "1.0.0",
+      "description": "MySQL database operations and management",
+      "author": "Corynth Team",
+      "size": "3.7M",
+      "format": "compiled",
+      "filename": "corynth-plugin-mysql.so",
+      "tags": ["mysql", "database", "sql", "rdbms", "mariadb"],
+      "actions": [
+        {"name": "query", "description": "Execute SQL query", "example": "SELECT * FROM users"},
+        {"name": "ping", "description": "Test database connection", "example": "Check connection"},
+        {"name": "backup", "description": "Create database backup using mysqldump", "example": "Backup database"},
+        {"name": "restore", "description": "Restore database from backup", "example": "Restore from file"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
+      "name": "prometheus",
+      "version": "1.0.0",
+      "description": "Prometheus monitoring and metrics collection",
+      "author": "Corynth Team",
+      "size": "3.7M",
+      "format": "compiled",
+      "filename": "corynth-plugin-prometheus.so",
+      "tags": ["prometheus", "monitoring", "metrics", "observability", "alerting"],
+      "actions": [
+        {"name": "query", "description": "Execute PromQL query", "example": "up{job=\"prometheus\"}"},
+        {"name": "query_range", "description": "Execute PromQL query over a time range", "example": "Query time series"},
+        {"name": "get_targets", "description": "Get Prometheus targets status", "example": "List targets"},
+        {"name": "get_alerts", "description": "Get active alerts", "example": "Check alerts"},
+        {"name": "get_series", "description": "Get time series that match label selectors", "example": "Find series"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
+      "name": "vault",
+      "version": "1.0.0",
+      "description": "HashiCorp Vault secrets management and encryption",
+      "author": "Corynth Team",
+      "size": "3.7M",
+      "format": "compiled",
+      "filename": "corynth-plugin-vault.so",
+      "tags": ["vault", "secrets", "security", "encryption", "hashicorp"],
+      "actions": [
+        {"name": "read_secret", "description": "Read secret from Vault", "example": "Get database password"},
+        {"name": "write_secret", "description": "Write secret to Vault", "example": "Store API key"},
+        {"name": "delete_secret", "description": "Delete secret from Vault", "example": "Remove old secret"},
+        {"name": "list_secrets", "description": "List secrets at a given path", "example": "Browse secrets"},
+        {"name": "authenticate", "description": "Authenticate with Vault using various methods", "example": "Login to Vault"},
+        {"name": "encrypt", "description": "Encrypt data using Vault Transit engine", "example": "Encrypt sensitive data"},
+        {"name": "decrypt", "description": "Decrypt data using Vault Transit engine", "example": "Decrypt data"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
       "name": "slack",
       "version": "1.0.0",
       "description": "Slack workspace messaging and management",
@@ -236,14 +330,16 @@
     "Cloud Storage": ["aws-s3", "awscli"],
     "Data Processing": ["csv-processor", "calculator"],
     "Communication": ["slack", "http-client", "discord"],
-    "Database": ["postgresql", "redis"],
-    "Development": ["github", "hello-world", "docker"],
-    "Infrastructure": ["awscli", "docker"],
-    "Monitoring": ["pagerduty"],
+    "Database": ["postgresql", "redis", "mysql"],
+    "Development": ["github", "hello-world", "docker", "jenkins"],
+    "Infrastructure": ["awscli", "docker", "terraform"],
+    "Monitoring": ["pagerduty", "prometheus"],
+    "Security": ["vault"],
+    "CI/CD": ["jenkins", "terraform"],
     "Media": ["image-processor"],
     "Utilities": ["calculator", "hello-world"]
   },
-  "featured": ["docker", "awscli", "pagerduty", "slack"],
-  "new": ["awscli", "docker", "pagerduty"],
-  "popular": ["docker", "awscli", "slack", "calculator"]
+  "featured": ["terraform", "vault", "jenkins", "prometheus", "mysql"],
+  "new": ["terraform", "jenkins", "mysql", "prometheus", "vault"],
+  "popular": ["terraform", "jenkins", "vault", "docker", "prometheus"]
 }
