@@ -1,0 +1,130 @@
+{
+  "version": "1.0.0",
+  "updated": "2025-08-18T16:49:26Z",
+  "repository": "https://github.com/justynroberts/corynthplugins",
+  "plugins": [
+    {
+      "name": "calculator",
+      "version": "1.0.0",
+      "description": "Mathematical calculations and unit conversions",
+      "author": "Corynth Team",
+      "size": "4.3M",
+      "format": "compiled",
+      "filename": "corynth-plugin-calculator.so",
+      "tags": ["math", "calculation", "utility", "converter"],
+      "actions": [
+        {"name": "calculate", "description": "Perform mathematical calculations", "example": "2 + 3 * 4"},
+        {"name": "convert", "description": "Convert between units", "example": "celsius to fahrenheit"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
+      "name": "csv-processor",
+      "version": "1.0.0",
+      "description": "CSV file processing and data manipulation",
+      "author": "Corynth Team",
+      "size": "3.8M",
+      "format": "compiled",
+      "filename": "corynth-plugin-csv-processor.so",
+      "tags": ["csv", "data", "processing", "file", "etl"],
+      "actions": [
+        {"name": "read", "description": "Read and parse CSV files", "example": "Read data.csv"},
+        {"name": "filter", "description": "Filter rows by column values", "example": "Filter by status"},
+        {"name": "sort", "description": "Sort data by column", "example": "Sort by date"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
+      "name": "github",
+      "version": "1.0.0",
+      "description": "GitHub repository operations and CI/CD",
+      "author": "Corynth Team",
+      "size": " 12M",
+      "format": "compiled",
+      "filename": "corynth-plugin-github.so",
+      "tags": ["github", "git", "repository", "ci-cd", "api"],
+      "actions": [
+        {"name": "create_issue", "description": "Create GitHub issues", "example": "Create issue with title"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
+      "name": "hello-world",
+      "version": "1.0.0",
+      "description": "Multi-language greetings and learning examples",
+      "author": "Corynth Team",
+      "size": "3.7M",
+      "format": "compiled",
+      "filename": "corynth-plugin-hello-world.so",
+      "tags": ["example", "tutorial", "beginner", "learning"],
+      "actions": [
+        {"name": "greet", "description": "Generate greetings", "example": "Hello in multiple languages"},
+        {"name": "echo", "description": "Echo messages", "example": "Echo with uppercase"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
+      "name": "http-client",
+      "version": "1.0.0",
+      "description": "HTTP requests with timeout and header support",
+      "author": "Corynth Team",
+      "size": " 11M",
+      "format": "compiled",
+      "filename": "corynth-plugin-http-client.so",
+      "tags": ["http", "api", "rest", "web", "client"],
+      "actions": [
+        {"name": "get", "description": "Make HTTP GET requests", "example": "GET with headers"},
+        {"name": "post", "description": "Make HTTP POST requests", "example": "POST JSON data"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
+      "name": "image-processor",
+      "version": "1.0.0",
+      "description": "Image processing and format conversion",
+      "author": "Corynth Team",
+      "size": "4.3M",
+      "format": "compiled",
+      "filename": "corynth-plugin-image-processor.so",
+      "tags": ["image", "processing", "graphics", "media"],
+      "actions": [
+        {"name": "info", "description": "Get image metadata", "example": "Get dimensions"},
+        {"name": "convert", "description": "Convert image formats", "example": "PNG to JPEG"},
+        {"name": "validate", "description": "Validate image integrity", "example": "Check validity"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
+      "name": "slack",
+      "version": "1.0.0",
+      "description": "Slack workspace messaging and management",
+      "author": "Corynth Team",
+      "size": " 12M",
+      "format": "compiled",
+      "filename": "corynth-plugin-slack.so",
+      "tags": ["slack", "messaging", "notification", "communication"],
+      "actions": [
+        {"name": "send_message", "description": "Send messages to Slack", "example": "Send to #general"},
+        {"name": "get_channels", "description": "List workspace channels", "example": "Get all channels"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+
+  ],
+  "categories": {
+    "Data Processing": ["csv-processor", "calculator"],
+    "Communication": ["slack", "http-client"],
+    "Development": ["github", "hello-world"],
+    "Media": ["image-processor"],
+    "Utilities": ["calculator", "hello-world"]
+  },
+  "featured": ["calculator", "csv-processor", "slack"],
+  "new": ["image-processor", "github"],
+  "popular": ["http-client", "slack", "calculator"]
+}
