@@ -163,6 +163,59 @@
     }
 ,
     {
+      "name": "awscli",
+      "version": "1.0.0",
+      "description": "AWS CLI operations for cloud resource management",
+      "author": "Corynth Team",
+      "size": "3.7M",
+      "format": "compiled",
+      "filename": "corynth-plugin-awscli.so",
+      "tags": ["aws", "cli", "cloud", "infrastructure", "management"],
+      "actions": [
+        {"name": "ec2_describe_instances", "description": "List EC2 instances", "example": "List running instances"},
+        {"name": "s3_list_buckets", "description": "List S3 buckets", "example": "Get all buckets"},
+        {"name": "cloudformation_describe_stacks", "description": "List CloudFormation stacks", "example": "Get stack status"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
+      "name": "docker",
+      "version": "1.0.0",
+      "description": "Docker container operations and image management",
+      "author": "Corynth Team",
+      "size": "3.7M",
+      "format": "compiled",
+      "filename": "corynth-plugin-docker.so",
+      "tags": ["docker", "containers", "containerization", "devops"],
+      "actions": [
+        {"name": "build", "description": "Build Docker image from Dockerfile", "example": "Build app:latest"},
+        {"name": "run", "description": "Run Docker container", "example": "Run nginx container"},
+        {"name": "ps", "description": "List Docker containers", "example": "List all containers"},
+        {"name": "stop", "description": "Stop Docker container", "example": "Stop container by ID"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
+      "name": "pagerduty",
+      "version": "1.0.0",
+      "description": "PagerDuty incident management and alerting",
+      "author": "Corynth Team",
+      "size": "3.7M",
+      "format": "compiled",
+      "filename": "corynth-plugin-pagerduty.so",
+      "tags": ["pagerduty", "alerting", "incident", "monitoring", "oncall"],
+      "actions": [
+        {"name": "create_incident", "description": "Create a new PagerDuty incident", "example": "Trigger alert"},
+        {"name": "resolve_incident", "description": "Resolve an existing incident", "example": "Mark resolved"},
+        {"name": "list_incidents", "description": "List PagerDuty incidents", "example": "Get open incidents"},
+        {"name": "get_oncall", "description": "Get current on-call schedule", "example": "Who's on call?"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
       "name": "slack",
       "version": "1.0.0",
       "description": "Slack workspace messaging and management",
@@ -180,15 +233,17 @@
 
   ],
   "categories": {
-    "Cloud Storage": ["aws-s3"],
+    "Cloud Storage": ["aws-s3", "awscli"],
     "Data Processing": ["csv-processor", "calculator"],
     "Communication": ["slack", "http-client", "discord"],
     "Database": ["postgresql", "redis"],
-    "Development": ["github", "hello-world"],
+    "Development": ["github", "hello-world", "docker"],
+    "Infrastructure": ["awscli", "docker"],
+    "Monitoring": ["pagerduty"],
     "Media": ["image-processor"],
     "Utilities": ["calculator", "hello-world"]
   },
-  "featured": ["calculator", "csv-processor", "slack"],
-  "new": ["discord", "postgresql", "redis", "aws-s3"],
-  "popular": ["http-client", "slack", "calculator"]
+  "featured": ["docker", "awscli", "pagerduty", "slack"],
+  "new": ["awscli", "docker", "pagerduty"],
+  "popular": ["docker", "awscli", "slack", "calculator"]
 }
