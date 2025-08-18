@@ -25,8 +25,11 @@ workflow "example" {
 | **aws-s3** | 1.0.0 | 3.7M | AWS S3 storage operations | `list_buckets` |
 | **calculator** | 1.0.0 | 4.5M | Mathematical calculations and unit conversions | `calculate`, `convert` |
 | **csv-processor** | 1.0.0 | 3.9M | CSV file processing and data manipulation | `read`, `filter`, `sort` |
+| **discord** | 1.0.0 | 3.7M | Discord messaging and bot operations | `send_message` |
 | **image-processor** | 1.0.0 | 4.4M | Image processing and format conversion | `info`, `convert`, `validate` |
 | **hello-world** | 1.0.0 | 3.8M | Multi-language greetings and learning examples | `greet`, `echo` |
+| **postgresql** | 1.0.0 | 3.7M | PostgreSQL database operations | `query`, `ping` |
+| **redis** | 1.0.0 | 3.7M | Redis cache operations and key-value storage | `set`, `get` |
 | **http-client** | 1.0.0 | 12M | HTTP requests with timeout and header support | `get`, `post` |
 | **slack** | 1.0.0 | 12M | Slack workspace messaging and management | `send_message`, `get_channels` |
 | **github** | 1.0.0 | 12M | GitHub repository operations and CI/CD | `create_issue` |
@@ -69,6 +72,11 @@ corynth plugin categories
 ### Communication
 - `slack` - Slack messaging
 - `http-client` - HTTP/REST API calls
+- `discord` - Discord messaging
+
+### Database
+- `postgresql` - PostgreSQL operations
+- `redis` - Redis caching
 
 ### Development
 - `github` - GitHub integration
@@ -187,6 +195,48 @@ step "list_buckets" {
 }
 ```
 
+### Discord Plugin
+```hcl
+step "notify_discord" {
+  plugin = "discord"
+  action = "send_message"
+  params = {
+    token = var.discord_token
+    channel_id = "123456789"
+    message = "Build completed successfully!"
+  }
+}
+```
+
+### PostgreSQL Plugin
+```hcl
+step "query_users" {
+  plugin = "postgresql"
+  action = "query"
+  params = {
+    host = "localhost"
+    database = "myapp"
+    username = var.db_user
+    password = var.db_pass
+    sql = "SELECT * FROM users WHERE active = true"
+  }
+}
+```
+
+### Redis Plugin
+```hcl
+step "cache_data" {
+  plugin = "redis"
+  action = "set"
+  params = {
+    host = "localhost"
+    key = "user:${var.user_id}"
+    value = "${step.get_user.outputs.user_data}"
+    ttl = 3600
+  }
+}
+```
+
 ## 🔧 Configuration
 
 Add this repository to your `corynth.hcl` configuration (this is the default):
@@ -250,7 +300,7 @@ See the [Plugin Development Guide](https://docs.corynth.io/plugins) for details.
 
 ## 📈 Stats
 
-- **Total Plugins**: 8
+- **Total Plugins**: 11
 - **Total Size**: ~53MB
 - **Downloads**: Auto-tracked by Corynth
 - **Last Updated**: 2024-08-18
@@ -263,8 +313,10 @@ See the [Plugin Development Guide](https://docs.corynth.io/plugins) for details.
 
 ## 🆕 New Plugins
 
-🎉 **image-processor** - Image manipulation capabilities  
-🎉 **github** - GitHub integration for CI/CD  
+🎉 **discord** - Discord bot messaging  
+🎉 **postgresql** - Database operations  
+🎉 **redis** - In-memory caching  
+🎉 **aws-s3** - Cloud storage integration  
 
 ## 📱 Support
 

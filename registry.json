@@ -116,6 +116,53 @@
     }
 ,
     {
+      "name": "discord",
+      "version": "1.0.0",
+      "description": "Discord messaging and bot operations",
+      "author": "Corynth Team",
+      "size": "3.7M",
+      "format": "compiled",
+      "filename": "corynth-plugin-discord.so",
+      "tags": ["discord", "messaging", "bot", "communication"],
+      "actions": [
+        {"name": "send_message", "description": "Send message to Discord channel", "example": "Send to #general"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
+      "name": "postgresql",
+      "version": "1.0.0",
+      "description": "PostgreSQL database operations",
+      "author": "Corynth Team",
+      "size": "3.7M",
+      "format": "compiled",
+      "filename": "corynth-plugin-postgresql.so",
+      "tags": ["postgresql", "database", "sql", "rdbms"],
+      "actions": [
+        {"name": "query", "description": "Execute SQL query", "example": "SELECT * FROM users"},
+        {"name": "ping", "description": "Test database connection", "example": "Check connection"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
+      "name": "redis",
+      "version": "1.0.0",
+      "description": "Redis cache operations and key-value storage",
+      "author": "Corynth Team",
+      "size": "3.7M",
+      "format": "compiled",
+      "filename": "corynth-plugin-redis.so",
+      "tags": ["redis", "cache", "key-value", "database"],
+      "actions": [
+        {"name": "set", "description": "Set key-value pair", "example": "SET key value"},
+        {"name": "get", "description": "Get value by key", "example": "GET key"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
       "name": "slack",
       "version": "1.0.0",
       "description": "Slack workspace messaging and management",
@@ -135,12 +182,13 @@
   "categories": {
     "Cloud Storage": ["aws-s3"],
     "Data Processing": ["csv-processor", "calculator"],
-    "Communication": ["slack", "http-client"],
+    "Communication": ["slack", "http-client", "discord"],
+    "Database": ["postgresql", "redis"],
     "Development": ["github", "hello-world"],
     "Media": ["image-processor"],
     "Utilities": ["calculator", "hello-world"]
   },
   "featured": ["calculator", "csv-processor", "slack"],
-  "new": ["aws-s3", "image-processor", "github"],
+  "new": ["discord", "postgresql", "redis", "aws-s3"],
   "popular": ["http-client", "slack", "calculator"]
 }
