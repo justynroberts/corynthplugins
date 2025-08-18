@@ -37,6 +37,21 @@
     }
 ,
     {
+      "name": "aws-s3",
+      "version": "1.0.0",
+      "description": "AWS S3 storage operations",
+      "author": "Corynth Team",
+      "size": "3.7M",
+      "format": "compiled",
+      "filename": "corynth-plugin-aws-s3.so",
+      "tags": ["aws", "s3", "storage", "cloud", "bucket"],
+      "actions": [
+        {"name": "list_buckets", "description": "List all S3 buckets", "example": "List AWS S3 buckets"}
+      ],
+      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    }
+,
+    {
       "name": "github",
       "version": "1.0.0",
       "description": "GitHub repository operations and CI/CD",
@@ -118,6 +133,7 @@
 
   ],
   "categories": {
+    "Cloud Storage": ["aws-s3"],
     "Data Processing": ["csv-processor", "calculator"],
     "Communication": ["slack", "http-client"],
     "Development": ["github", "hello-world"],
@@ -125,6 +141,6 @@
     "Utilities": ["calculator", "hello-world"]
   },
   "featured": ["calculator", "csv-processor", "slack"],
-  "new": ["image-processor", "github"],
+  "new": ["aws-s3", "image-processor", "github"],
   "popular": ["http-client", "slack", "calculator"]
 }

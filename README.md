@@ -22,6 +22,7 @@ workflow "example" {
 
 | Plugin | Version | Size | Description | Actions |
 |--------|---------|------|-------------|---------|
+| **aws-s3** | 1.0.0 | 3.7M | AWS S3 storage operations | `list_buckets` |
 | **calculator** | 1.0.0 | 4.5M | Mathematical calculations and unit conversions | `calculate`, `convert` |
 | **csv-processor** | 1.0.0 | 3.9M | CSV file processing and data manipulation | `read`, `filter`, `sort` |
 | **image-processor** | 1.0.0 | 4.4M | Image processing and format conversion | `info`, `convert`, `validate` |
@@ -57,6 +58,9 @@ corynth plugin categories
 ```
 
 ## 📋 Categories
+
+### Cloud Storage
+- `aws-s3` - AWS S3 operations
 
 ### Data Processing
 - `csv-processor` - CSV file manipulation
@@ -170,6 +174,19 @@ step "notify" {
 }
 ```
 
+### AWS S3 Plugin
+```hcl
+step "list_buckets" {
+  plugin = "aws-s3"
+  action = "list_buckets"
+  params = {
+    access_key = var.aws_access_key
+    secret_key = var.aws_secret_key
+    region = "us-east-1"
+  }
+}
+```
+
 ## 🔧 Configuration
 
 Add this repository to your `corynth.hcl` configuration (this is the default):
@@ -233,7 +250,7 @@ See the [Plugin Development Guide](https://docs.corynth.io/plugins) for details.
 
 ## 📈 Stats
 
-- **Total Plugins**: 7
+- **Total Plugins**: 8
 - **Total Size**: ~53MB
 - **Downloads**: Auto-tracked by Corynth
 - **Last Updated**: 2024-08-18
