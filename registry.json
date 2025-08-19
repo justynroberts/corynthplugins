@@ -2,72 +2,172 @@
   "version": "1.0.0",
   "updated": "2025-08-19T12:00:00Z",
   "repository": "https://github.com/justynroberts/corynthplugins",
+  "note": "All plugins listed below are available as built-in lazy-loaded plugins in Corynth >= 1.2.0. No installation required.",
   "plugins": [
     {
-      "name": "calculator",
+      "name": "redis",
       "version": "1.0.0",
-      "description": "Mathematical calculations and unit conversions",
+      "description": "Redis cache operations and key-value storage",
       "author": "Corynth Team",
-      "size": "4.3M",
-      "format": "compiled",
-      "filename": "corynth-plugin-calculator.so",
-      "tags": ["math", "calculation", "utility", "converter"],
+      "format": "built-in",
+      "installation": "Automatically lazy-loaded when first used",
+      "tags": ["redis", "cache", "key-value", "database"],
       "actions": [
-        {"name": "calculate", "description": "Perform mathematical calculations", "example": "2 + 3 * 4"}
+        {"name": "set", "description": "Set a key-value pair in Redis", "example": "SET mykey myvalue"},
+        {"name": "get", "description": "Get a value from Redis by key", "example": "GET mykey"},
+        {"name": "delete", "description": "Delete a key from Redis", "example": "DEL mykey"},
+        {"name": "list", "description": "List keys matching a pattern", "example": "KEYS user:*"}
       ],
-      "requirements": {"corynth": ">=1.2.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+      "requirements": {"corynth": ">=1.2.0"}
     },
     {
-      "name": "aws-s3",
+      "name": "mysql",
       "version": "1.0.0",
-      "description": "AWS S3 storage operations",
+      "description": "MySQL database operations and management",
       "author": "Corynth Team",
-      "size": "3.7M",
-      "format": "compiled",
-      "filename": "corynth-plugin-aws-s3.so",
-      "tags": ["aws", "s3", "storage", "cloud", "bucket"],
+      "format": "built-in",
+      "installation": "Automatically lazy-loaded when first used",
+      "tags": ["mysql", "database", "sql", "rdbms", "mariadb"],
       "actions": [
-        {"name": "list_buckets", "description": "List all S3 buckets", "example": "List AWS S3 buckets"}
+        {"name": "query", "description": "Execute SQL query", "example": "SELECT * FROM users"},
+        {"name": "execute", "description": "Execute INSERT/UPDATE/DELETE", "example": "INSERT INTO users VALUES (...)"},
+        {"name": "backup", "description": "Create database backup using mysqldump", "example": "Backup database"}
       ],
-      "requirements": {"corynth": ">=1.2.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+      "requirements": {"corynth": ">=1.2.0"}
     },
     {
-      "name": "hello-world",
+      "name": "terraform",
       "version": "1.0.0",
-      "description": "Multi-language greetings and learning examples",
+      "description": "Terraform Infrastructure as Code operations",
       "author": "Corynth Team",
-      "size": "3.7M",
-      "format": "compiled",
-      "filename": "corynth-plugin-hello-world.so",
-      "tags": ["example", "tutorial", "beginner", "learning"],
+      "format": "built-in",
+      "installation": "Automatically lazy-loaded when first used",
+      "tags": ["terraform", "iac", "infrastructure", "cloud", "provisioning"],
       "actions": [
-        {"name": "greet", "description": "Generate greetings", "example": "Hello in multiple languages"}
+        {"name": "init", "description": "Initialize Terraform working directory", "example": "terraform init"},
+        {"name": "plan", "description": "Create Terraform execution plan", "example": "terraform plan"},
+        {"name": "apply", "description": "Apply Terraform configuration", "example": "terraform apply"},
+        {"name": "destroy", "description": "Destroy Terraform-managed infrastructure", "example": "terraform destroy"}
       ],
-      "requirements": {"corynth": ">=1.2.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+      "requirements": {"corynth": ">=1.2.0"}
     },
     {
-      "name": "postgresql",
+      "name": "vault",
       "version": "1.0.0",
-      "description": "PostgreSQL database operations",
+      "description": "HashiCorp Vault secrets management and encryption",
       "author": "Corynth Team",
-      "size": "3.7M",
-      "format": "compiled",
-      "filename": "corynth-plugin-postgresql.so",
-      "tags": ["postgresql", "database", "sql", "rdbms"],
+      "format": "built-in",
+      "installation": "Automatically lazy-loaded when first used",
+      "tags": ["vault", "secrets", "security", "encryption", "hashicorp"],
       "actions": [
-        {"name": "query", "description": "Execute SQL query", "example": "SELECT * FROM users"}
+        {"name": "read", "description": "Read secret from Vault", "example": "vault kv get secret/myapp"},
+        {"name": "write", "description": "Write secret to Vault", "example": "vault kv put secret/myapp password=123"},
+        {"name": "delete", "description": "Delete secret from Vault", "example": "vault kv delete secret/myapp"},
+        {"name": "list", "description": "List secrets at a given path", "example": "vault kv list secret/"}
       ],
-      "requirements": {"corynth": ">=1.2.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+      "requirements": {"corynth": ">=1.2.0"}
+    },
+    {
+      "name": "docker",
+      "version": "1.0.0",
+      "description": "Docker container operations and image management",
+      "author": "Corynth Team",
+      "format": "built-in",
+      "installation": "Automatically lazy-loaded when first used",
+      "tags": ["docker", "containers", "containerization", "devops"],
+      "actions": [
+        {"name": "run", "description": "Run Docker container", "example": "docker run nginx"},
+        {"name": "build", "description": "Build Docker image", "example": "docker build -t myapp ."},
+        {"name": "ps", "description": "List Docker containers", "example": "docker ps"},
+        {"name": "stop", "description": "Stop Docker container", "example": "docker stop container_id"}
+      ],
+      "requirements": {"corynth": ">=1.2.0"}
+    },
+    {
+      "name": "http",
+      "version": "1.0.0",
+      "description": "HTTP requests with timeout and header support",
+      "author": "Corynth Team",
+      "format": "built-in",
+      "installation": "Automatically lazy-loaded when first used",
+      "tags": ["http", "api", "rest", "web", "client"],
+      "actions": [
+        {"name": "get", "description": "Make HTTP GET requests", "example": "GET https://api.example.com/users"},
+        {"name": "post", "description": "Make HTTP POST requests", "example": "POST JSON data"},
+        {"name": "put", "description": "Make HTTP PUT requests", "example": "PUT update data"},
+        {"name": "delete", "description": "Make HTTP DELETE requests", "example": "DELETE resource"}
+      ],
+      "requirements": {"corynth": ">=1.2.0"}
+    },
+    {
+      "name": "shell",
+      "version": "1.0.0",
+      "description": "Execute shell commands and scripts",
+      "author": "Corynth Team",
+      "format": "built-in",
+      "installation": "Automatically lazy-loaded when first used",
+      "tags": ["shell", "command", "script", "execution"],
+      "actions": [
+        {"name": "exec", "description": "Execute shell command", "example": "ls -la"},
+        {"name": "script", "description": "Execute shell script", "example": "Run bash script"}
+      ],
+      "requirements": {"corynth": ">=1.2.0"}
+    },
+    {
+      "name": "file",
+      "version": "1.0.0",
+      "description": "File and directory operations",
+      "author": "Corynth Team",
+      "format": "built-in", 
+      "installation": "Automatically lazy-loaded when first used",
+      "tags": ["file", "directory", "filesystem", "io"],
+      "actions": [
+        {"name": "read", "description": "Read file contents", "example": "Read text file"},
+        {"name": "write", "description": "Write file contents", "example": "Write to file"},
+        {"name": "copy", "description": "Copy files or directories", "example": "Copy file.txt to backup.txt"},
+        {"name": "move", "description": "Move or rename files", "example": "Move file to new location"}
+      ],
+      "requirements": {"corynth": ">=1.2.0"}
+    },
+    {
+      "name": "git",
+      "version": "1.0.0",
+      "description": "Git version control operations",
+      "author": "Corynth Team",
+      "format": "built-in",
+      "installation": "Always available (core plugin)",
+      "tags": ["git", "version-control", "repository", "scm"],
+      "actions": [
+        {"name": "clone", "description": "Clone a Git repository", "example": "git clone https://github.com/user/repo.git"},
+        {"name": "status", "description": "Check repository status", "example": "git status"},
+        {"name": "commit", "description": "Commit changes", "example": "git commit -m 'message'"},
+        {"name": "push", "description": "Push changes to remote", "example": "git push origin main"}
+      ],
+      "requirements": {"corynth": ">=1.0.0"}
+    },
+    {
+      "name": "slack",
+      "version": "1.0.0",
+      "description": "Slack workspace messaging and management",
+      "author": "Corynth Team",
+      "format": "built-in",
+      "installation": "Always available (core plugin)",
+      "tags": ["slack", "messaging", "notification", "communication"],
+      "actions": [
+        {"name": "send", "description": "Send messages to Slack", "example": "Send to #general"},
+        {"name": "channels", "description": "List workspace channels", "example": "Get all channels"}
+      ],
+      "requirements": {"corynth": ">=1.0.0"}
     }
   ],
   "categories": {
-    "Cloud Storage": ["aws-s3"],
-    "Data Processing": ["calculator"],
-    "Database": ["postgresql"],
-    "Development": ["hello-world"],
-    "Utilities": ["calculator", "hello-world"]
+    "Core": ["git", "slack"],
+    "Database": ["redis", "mysql"],
+    "Infrastructure": ["terraform", "vault", "docker"],
+    "Network": ["http"],
+    "System": ["shell", "file"]
   },
-  "featured": ["postgresql", "calculator", "aws-s3"],
-  "new": ["postgresql", "calculator", "aws-s3", "hello-world"],
-  "popular": ["calculator", "hello-world", "postgresql", "aws-s3"]
+  "featured": ["redis", "mysql", "terraform", "vault", "docker"],
+  "new": ["redis", "mysql", "terraform", "vault", "docker"],
+  "popular": ["git", "slack", "http", "redis", "mysql"]
 }
