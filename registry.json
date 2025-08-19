@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated": "2025-08-18T16:49:26Z",
+  "updated": "2025-08-19T12:00:00Z",
   "repository": "https://github.com/justynroberts/corynthplugins",
   "plugins": [
     {
@@ -13,29 +13,10 @@
       "filename": "corynth-plugin-calculator.so",
       "tags": ["math", "calculation", "utility", "converter"],
       "actions": [
-        {"name": "calculate", "description": "Perform mathematical calculations", "example": "2 + 3 * 4"},
-        {"name": "convert", "description": "Convert between units", "example": "celsius to fahrenheit"}
+        {"name": "calculate", "description": "Perform mathematical calculations", "example": "2 + 3 * 4"}
       ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
-    {
-      "name": "csv-processor",
-      "version": "1.0.0",
-      "description": "CSV file processing and data manipulation",
-      "author": "Corynth Team",
-      "size": "3.8M",
-      "format": "compiled",
-      "filename": "corynth-plugin-csv-processor.so",
-      "tags": ["csv", "data", "processing", "file", "etl"],
-      "actions": [
-        {"name": "read", "description": "Read and parse CSV files", "example": "Read data.csv"},
-        {"name": "filter", "description": "Filter rows by column values", "example": "Filter by status"},
-        {"name": "sort", "description": "Sort data by column", "example": "Sort by date"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
+      "requirements": {"corynth": ">=1.2.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    },
     {
       "name": "aws-s3",
       "version": "1.0.0",
@@ -48,24 +29,8 @@
       "actions": [
         {"name": "list_buckets", "description": "List all S3 buckets", "example": "List AWS S3 buckets"}
       ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
-    {
-      "name": "github",
-      "version": "1.0.0",
-      "description": "GitHub repository operations and CI/CD",
-      "author": "Corynth Team",
-      "size": " 12M",
-      "format": "compiled",
-      "filename": "corynth-plugin-github.so",
-      "tags": ["github", "git", "repository", "ci-cd", "api"],
-      "actions": [
-        {"name": "create_issue", "description": "Create GitHub issues", "example": "Create issue with title"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
+      "requirements": {"corynth": ">=1.2.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    },
     {
       "name": "hello-world",
       "version": "1.0.0",
@@ -76,60 +41,10 @@
       "filename": "corynth-plugin-hello-world.so",
       "tags": ["example", "tutorial", "beginner", "learning"],
       "actions": [
-        {"name": "greet", "description": "Generate greetings", "example": "Hello in multiple languages"},
-        {"name": "echo", "description": "Echo messages", "example": "Echo with uppercase"}
+        {"name": "greet", "description": "Generate greetings", "example": "Hello in multiple languages"}
       ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
-    {
-      "name": "http-client",
-      "version": "1.0.0",
-      "description": "HTTP requests with timeout and header support",
-      "author": "Corynth Team",
-      "size": " 11M",
-      "format": "compiled",
-      "filename": "corynth-plugin-http-client.so",
-      "tags": ["http", "api", "rest", "web", "client"],
-      "actions": [
-        {"name": "get", "description": "Make HTTP GET requests", "example": "GET with headers"},
-        {"name": "post", "description": "Make HTTP POST requests", "example": "POST JSON data"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
-    {
-      "name": "image-processor",
-      "version": "1.0.0",
-      "description": "Image processing and format conversion",
-      "author": "Corynth Team",
-      "size": "4.3M",
-      "format": "compiled",
-      "filename": "corynth-plugin-image-processor.so",
-      "tags": ["image", "processing", "graphics", "media"],
-      "actions": [
-        {"name": "info", "description": "Get image metadata", "example": "Get dimensions"},
-        {"name": "convert", "description": "Convert image formats", "example": "PNG to JPEG"},
-        {"name": "validate", "description": "Validate image integrity", "example": "Check validity"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
-    {
-      "name": "discord",
-      "version": "1.0.0",
-      "description": "Discord messaging and bot operations",
-      "author": "Corynth Team",
-      "size": "3.7M",
-      "format": "compiled",
-      "filename": "corynth-plugin-discord.so",
-      "tags": ["discord", "messaging", "bot", "communication"],
-      "actions": [
-        {"name": "send_message", "description": "Send message to Discord channel", "example": "Send to #general"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
+      "requirements": {"corynth": ">=1.2.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+    },
     {
       "name": "postgresql",
       "version": "1.0.0",
@@ -140,206 +55,19 @@
       "filename": "corynth-plugin-postgresql.so",
       "tags": ["postgresql", "database", "sql", "rdbms"],
       "actions": [
-        {"name": "query", "description": "Execute SQL query", "example": "SELECT * FROM users"},
-        {"name": "ping", "description": "Test database connection", "example": "Check connection"}
+        {"name": "query", "description": "Execute SQL query", "example": "SELECT * FROM users"}
       ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
+      "requirements": {"corynth": ">=1.2.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
     }
-,
-    {
-      "name": "redis",
-      "version": "1.0.0",
-      "description": "Redis cache operations and key-value storage",
-      "author": "Corynth Team",
-      "size": "3.7M",
-      "format": "compiled",
-      "filename": "corynth-plugin-redis.so",
-      "tags": ["redis", "cache", "key-value", "database"],
-      "actions": [
-        {"name": "set", "description": "Set key-value pair", "example": "SET key value"},
-        {"name": "get", "description": "Get value by key", "example": "GET key"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
-    {
-      "name": "awscli",
-      "version": "1.0.0",
-      "description": "AWS CLI operations for cloud resource management",
-      "author": "Corynth Team",
-      "size": "3.7M",
-      "format": "compiled",
-      "filename": "corynth-plugin-awscli.so",
-      "tags": ["aws", "cli", "cloud", "infrastructure", "management"],
-      "actions": [
-        {"name": "ec2_describe_instances", "description": "List EC2 instances", "example": "List running instances"},
-        {"name": "s3_list_buckets", "description": "List S3 buckets", "example": "Get all buckets"},
-        {"name": "cloudformation_describe_stacks", "description": "List CloudFormation stacks", "example": "Get stack status"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
-    {
-      "name": "docker",
-      "version": "1.0.0",
-      "description": "Docker container operations and image management",
-      "author": "Corynth Team",
-      "size": "3.7M",
-      "format": "compiled",
-      "filename": "corynth-plugin-docker.so",
-      "tags": ["docker", "containers", "containerization", "devops"],
-      "actions": [
-        {"name": "build", "description": "Build Docker image from Dockerfile", "example": "Build app:latest"},
-        {"name": "run", "description": "Run Docker container", "example": "Run nginx container"},
-        {"name": "ps", "description": "List Docker containers", "example": "List all containers"},
-        {"name": "stop", "description": "Stop Docker container", "example": "Stop container by ID"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
-    {
-      "name": "pagerduty",
-      "version": "1.0.0",
-      "description": "PagerDuty incident management and alerting",
-      "author": "Corynth Team",
-      "size": "3.7M",
-      "format": "compiled",
-      "filename": "corynth-plugin-pagerduty.so",
-      "tags": ["pagerduty", "alerting", "incident", "monitoring", "oncall"],
-      "actions": [
-        {"name": "create_incident", "description": "Create a new PagerDuty incident", "example": "Trigger alert"},
-        {"name": "resolve_incident", "description": "Resolve an existing incident", "example": "Mark resolved"},
-        {"name": "list_incidents", "description": "List PagerDuty incidents", "example": "Get open incidents"},
-        {"name": "get_oncall", "description": "Get current on-call schedule", "example": "Who's on call?"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
-    {
-      "name": "terraform",
-      "version": "1.0.0",
-      "description": "Terraform Infrastructure as Code operations",
-      "author": "Corynth Team",
-      "size": "3.7M",
-      "format": "compiled",
-      "filename": "corynth-plugin-terraform.so",
-      "tags": ["terraform", "iac", "infrastructure", "cloud", "provisioning"],
-      "actions": [
-        {"name": "plan", "description": "Create Terraform execution plan", "example": "Plan infrastructure changes"},
-        {"name": "apply", "description": "Apply Terraform configuration", "example": "Deploy infrastructure"},
-        {"name": "destroy", "description": "Destroy Terraform-managed infrastructure", "example": "Tear down resources"},
-        {"name": "init", "description": "Initialize Terraform working directory", "example": "Initialize project"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
-    {
-      "name": "jenkins",
-      "version": "1.0.0",
-      "description": "Jenkins CI/CD pipeline automation and build management",
-      "author": "Corynth Team",
-      "size": "3.7M",
-      "format": "compiled",
-      "filename": "corynth-plugin-jenkins.so",
-      "tags": ["jenkins", "ci-cd", "build", "automation", "pipeline"],
-      "actions": [
-        {"name": "trigger_build", "description": "Trigger a Jenkins job build", "example": "Start build job"},
-        {"name": "get_build_status", "description": "Get status of a Jenkins build", "example": "Check build result"},
-        {"name": "list_jobs", "description": "List Jenkins jobs", "example": "Get all jobs"},
-        {"name": "get_console_output", "description": "Get console output from a Jenkins build", "example": "View build logs"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
-    {
-      "name": "mysql",
-      "version": "1.0.0",
-      "description": "MySQL database operations and management",
-      "author": "Corynth Team",
-      "size": "3.7M",
-      "format": "compiled",
-      "filename": "corynth-plugin-mysql.so",
-      "tags": ["mysql", "database", "sql", "rdbms", "mariadb"],
-      "actions": [
-        {"name": "query", "description": "Execute SQL query", "example": "SELECT * FROM users"},
-        {"name": "ping", "description": "Test database connection", "example": "Check connection"},
-        {"name": "backup", "description": "Create database backup using mysqldump", "example": "Backup database"},
-        {"name": "restore", "description": "Restore database from backup", "example": "Restore from file"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
-    {
-      "name": "prometheus",
-      "version": "1.0.0",
-      "description": "Prometheus monitoring and metrics collection",
-      "author": "Corynth Team",
-      "size": "3.7M",
-      "format": "compiled",
-      "filename": "corynth-plugin-prometheus.so",
-      "tags": ["prometheus", "monitoring", "metrics", "observability", "alerting"],
-      "actions": [
-        {"name": "query", "description": "Execute PromQL query", "example": "up{job=\"prometheus\"}"},
-        {"name": "query_range", "description": "Execute PromQL query over a time range", "example": "Query time series"},
-        {"name": "get_targets", "description": "Get Prometheus targets status", "example": "List targets"},
-        {"name": "get_alerts", "description": "Get active alerts", "example": "Check alerts"},
-        {"name": "get_series", "description": "Get time series that match label selectors", "example": "Find series"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
-    {
-      "name": "vault",
-      "version": "1.0.0",
-      "description": "HashiCorp Vault secrets management and encryption",
-      "author": "Corynth Team",
-      "size": "3.7M",
-      "format": "compiled",
-      "filename": "corynth-plugin-vault.so",
-      "tags": ["vault", "secrets", "security", "encryption", "hashicorp"],
-      "actions": [
-        {"name": "read_secret", "description": "Read secret from Vault", "example": "Get database password"},
-        {"name": "write_secret", "description": "Write secret to Vault", "example": "Store API key"},
-        {"name": "delete_secret", "description": "Delete secret from Vault", "example": "Remove old secret"},
-        {"name": "list_secrets", "description": "List secrets at a given path", "example": "Browse secrets"},
-        {"name": "authenticate", "description": "Authenticate with Vault using various methods", "example": "Login to Vault"},
-        {"name": "encrypt", "description": "Encrypt data using Vault Transit engine", "example": "Encrypt sensitive data"},
-        {"name": "decrypt", "description": "Decrypt data using Vault Transit engine", "example": "Decrypt data"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-,
-    {
-      "name": "slack",
-      "version": "1.0.0",
-      "description": "Slack workspace messaging and management",
-      "author": "Corynth Team",
-      "size": " 12M",
-      "format": "compiled",
-      "filename": "corynth-plugin-slack.so",
-      "tags": ["slack", "messaging", "notification", "communication"],
-      "actions": [
-        {"name": "send_message", "description": "Send messages to Slack", "example": "Send to #general"},
-        {"name": "get_channels", "description": "List workspace channels", "example": "Get all channels"}
-      ],
-      "requirements": {"corynth": ">=1.0.0", "os": ["darwin", "linux"], "arch": ["amd64", "arm64"]}
-    }
-
   ],
   "categories": {
-    "Cloud Storage": ["aws-s3", "awscli"],
-    "Data Processing": ["csv-processor", "calculator"],
-    "Communication": ["slack", "http-client", "discord"],
-    "Database": ["postgresql", "redis", "mysql"],
-    "Development": ["github", "hello-world", "docker", "jenkins"],
-    "Infrastructure": ["awscli", "docker", "terraform"],
-    "Monitoring": ["pagerduty", "prometheus"],
-    "Security": ["vault"],
-    "CI/CD": ["jenkins", "terraform"],
-    "Media": ["image-processor"],
+    "Cloud Storage": ["aws-s3"],
+    "Data Processing": ["calculator"],
+    "Database": ["postgresql"],
+    "Development": ["hello-world"],
     "Utilities": ["calculator", "hello-world"]
   },
-  "featured": ["terraform", "vault", "jenkins", "prometheus", "mysql"],
-  "new": ["terraform", "jenkins", "mysql", "prometheus", "vault"],
-  "popular": ["terraform", "jenkins", "vault", "docker", "prometheus"]
+  "featured": ["postgresql", "calculator", "aws-s3"],
+  "new": ["postgresql", "calculator", "aws-s3", "hello-world"],
+  "popular": ["calculator", "hello-world", "postgresql", "aws-s3"]
 }
