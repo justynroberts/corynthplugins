@@ -234,6 +234,28 @@
       "requirements": {"corynth": ">=1.2.0"}
     },
     {
+      "name": "gcp",
+      "version": "1.0.0",
+      "description": "Google Cloud Platform operations and resource management",
+      "author": "Corynth Team",
+      "format": "built-in",
+      "installation": "Automatically lazy-loaded when first used",
+      "tags": ["gcp", "google-cloud", "gce", "gke", "gcs", "cloud-functions", "cloud-native"],
+      "actions": [
+        {"name": "compute_list", "description": "List Compute Engine instances", "example": "List VMs"},
+        {"name": "compute_create", "description": "Create Compute Engine instance", "example": "Launch VM"},
+        {"name": "compute_delete", "description": "Delete Compute Engine instances", "example": "Delete VMs"},
+        {"name": "gke_list", "description": "List GKE clusters", "example": "List clusters"},
+        {"name": "gke_get_credentials", "description": "Get GKE cluster credentials", "example": "Get kubeconfig"},
+        {"name": "storage_list", "description": "List Cloud Storage buckets or objects", "example": "List buckets"},
+        {"name": "storage_upload", "description": "Upload file to Cloud Storage", "example": "Upload to GCS"},
+        {"name": "storage_download", "description": "Download file from Cloud Storage", "example": "Download from GCS"},
+        {"name": "functions_deploy", "description": "Deploy Cloud Function", "example": "Deploy function"},
+        {"name": "functions_invoke", "description": "Invoke Cloud Function", "example": "Invoke function"}
+      ],
+      "requirements": {"corynth": ">=1.2.0"}
+    },
+    {
       "name": "json-processor",
       "version": "1.0.0",
       "description": "JSON parsing, manipulation, and validation",
@@ -253,14 +275,14 @@
   "categories": {
     "Core": ["git", "slack"],
     "Container & Orchestration": ["kubernetes", "helm", "docker"],
-    "Cloud Providers": ["aws"],
+    "Cloud Providers": ["aws", "gcp"],
     "Database": ["redis", "mysql"],
     "Infrastructure": ["terraform", "vault"],
     "Network": ["http"],
     "System": ["shell", "file"],
     "Utilities": ["calculator", "json-processor"]
   },
-  "featured": ["kubernetes", "helm", "aws", "terraform", "docker"],
-  "new": ["kubernetes", "helm", "aws", "calculator", "json-processor"],
-  "popular": ["kubernetes", "aws", "docker", "terraform", "http"]
+  "featured": ["kubernetes", "helm", "aws", "gcp", "terraform", "docker"],
+  "new": ["kubernetes", "helm", "aws", "gcp", "calculator", "json-processor"],
+  "popular": ["kubernetes", "aws", "gcp", "docker", "terraform", "http"]
 }
