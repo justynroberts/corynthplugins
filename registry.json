@@ -270,6 +270,40 @@
         {"name": "transform", "description": "Transform JSON data", "example": "Apply transformations"}
       ],
       "requirements": {"corynth": ">=1.2.0"}
+    },
+    {
+      "name": "reporting",
+      "version": "1.0.0",
+      "description": "Generate formatted reports with tables, charts, and multiple output formats",
+      "author": "Corynth Team",
+      "format": "built-in",
+      "installation": "Automatically lazy-loaded when first used",
+      "tags": ["reporting", "pdf", "markdown", "tables", "documentation", "output"],
+      "actions": [
+        {"name": "create_report", "description": "Create formatted report", "example": "Generate HTML/PDF report"},
+        {"name": "create_table", "description": "Create formatted table", "example": "Generate markdown table"},
+        {"name": "create_chart", "description": "Create chart visualization", "example": "Generate ASCII chart"},
+        {"name": "convert_format", "description": "Convert report formats", "example": "Convert MD to PDF"},
+        {"name": "display", "description": "Display content on screen", "example": "Show formatted output"}
+      ],
+      "requirements": {"corynth": ">=1.2.0"}
+    },
+    {
+      "name": "llm",
+      "version": "1.0.0",
+      "description": "Large Language Model integration with commercial APIs and self-hosted Ollama",
+      "author": "Corynth Team",
+      "format": "built-in",
+      "installation": "Automatically lazy-loaded when first used",
+      "tags": ["llm", "ai", "gpt", "claude", "ollama", "openai", "anthropic", "generation"],
+      "actions": [
+        {"name": "generate", "description": "Generate text using LLM", "example": "Generate documentation"},
+        {"name": "chat", "description": "Interactive chat with LLM", "example": "Conversational AI"},
+        {"name": "embed", "description": "Generate text embeddings", "example": "Create vector embeddings"},
+        {"name": "list_models", "description": "List available models", "example": "Show Ollama models"},
+        {"name": "pull_model", "description": "Download model (Ollama)", "example": "Pull llama2 model"}
+      ],
+      "requirements": {"corynth": ">=1.2.0"}
     }
   ],
   "categories": {
@@ -280,9 +314,10 @@
     "Infrastructure": ["terraform", "vault"],
     "Network": ["http"],
     "System": ["shell", "file"],
-    "Utilities": ["calculator", "json-processor"]
+    "Utilities": ["calculator", "json-processor"],
+    "AI & Reporting": ["llm", "reporting"]
   },
-  "featured": ["kubernetes", "helm", "aws", "gcp", "terraform", "docker"],
-  "new": ["kubernetes", "helm", "aws", "gcp", "calculator", "json-processor"],
-  "popular": ["kubernetes", "aws", "gcp", "docker", "terraform", "http"]
+  "featured": ["kubernetes", "helm", "aws", "gcp", "llm", "reporting"],
+  "new": ["llm", "reporting", "kubernetes", "helm", "aws", "gcp"],
+  "popular": ["llm", "kubernetes", "aws", "reporting", "docker", "terraform"]
 }
