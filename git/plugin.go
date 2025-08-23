@@ -6,7 +6,7 @@ import (
 	"os/exec"
 	"strings"
 	
-	"github.com/corynth/corynth-dist/src/pkg/plugin"
+	"github.com/corynth/corynth-dist/pkg/plugin"
 )
 
 type GitPlugin struct{}

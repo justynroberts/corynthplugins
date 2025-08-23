@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	
-	"github.com/corynth/corynth-dist/src/pkg/plugin"
+	"github.com/corynth/corynth-dist/pkg/plugin"
 )
 
 type VaultPlugin struct{}
